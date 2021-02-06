@@ -7,6 +7,12 @@
 
 package ar.com.coninf.doconline.ws.impl;
 
+import java.rmi.RemoteException;
+
+import ar.com.coninf.doconline.rest.model.response.xsd.ResponseGenerarQr;
+import ar.com.coninf.doconline.rest.model.tx.xsd.ControlTransaccion;
+import ar.com.coninf.doconline.rest.model.tx.xsd.DatoQr;
+
 @SuppressWarnings("rawtypes")
 public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.client.Stub implements ar.com.coninf.doconline.ws.impl.DocOnlineServicioWebPortType {
     
@@ -879,5 +885,11 @@ public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.clien
   throw axisFaultException;
 }
     }
+
+	@Override
+	public ResponseGenerarQr generarQr(ControlTransaccion ctx, DatoQr datoQr) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

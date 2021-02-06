@@ -1,8 +1,18 @@
 package ar.com.coninf.doconline.ws.impl;
 
-public class DocOnlineServicioWebPortTypeProxy implements ar.com.coninf.doconline.ws.impl.DocOnlineServicioWebPortType {
+import java.rmi.RemoteException;
+
+import javax.xml.rpc.ServiceException;
+
+import ar.com.coninf.doconline.rest.model.request.xsd.RequestAutorizarComprobante;
+import ar.com.coninf.doconline.rest.model.response.xsd.Response;
+import ar.com.coninf.doconline.rest.model.response.xsd.ResponseGenerarQr;
+import ar.com.coninf.doconline.rest.model.tx.xsd.ControlTransaccion;
+import ar.com.coninf.doconline.rest.model.tx.xsd.DatoQr;
+
+public class DocOnlineServicioWebPortTypeProxy implements DocOnlineServicioWebPortType {
   private String _endpoint = null;
-  private ar.com.coninf.doconline.ws.impl.DocOnlineServicioWebPortType docOnlineServicioWebPortType = null;
+  private DocOnlineServicioWebPortType docOnlineServicioWebPortType = null;
   
   public DocOnlineServicioWebPortTypeProxy() {
     _initDocOnlineServicioWebPortTypeProxy();
@@ -15,7 +25,7 @@ public class DocOnlineServicioWebPortTypeProxy implements ar.com.coninf.doconlin
   
   private void _initDocOnlineServicioWebPortTypeProxy() {
     try {
-      docOnlineServicioWebPortType = (new ar.com.coninf.doconline.ws.impl.DocOnlineServicioWebLocator()).getDocOnlineServicioWebHttpSoap11Endpoint();
+      docOnlineServicioWebPortType = (new DocOnlineServicioWebLocator()).getDocOnlineServicioWebHttpSoap11Endpoint();
       if (docOnlineServicioWebPortType != null) {
         if (_endpoint != null)
           ((javax.xml.rpc.Stub)docOnlineServicioWebPortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
@@ -24,7 +34,7 @@ public class DocOnlineServicioWebPortTypeProxy implements ar.com.coninf.doconlin
       }
       
     }
-    catch (javax.xml.rpc.ServiceException serviceException) {}
+    catch (ServiceException serviceException) {}
   }
   
   public String getEndpoint() {
@@ -38,13 +48,13 @@ public class DocOnlineServicioWebPortTypeProxy implements ar.com.coninf.doconlin
     
   }
   
-  public ar.com.coninf.doconline.ws.impl.DocOnlineServicioWebPortType getDocOnlineServicioWebPortType() {
+  public DocOnlineServicioWebPortType getDocOnlineServicioWebPortType() {
     if (docOnlineServicioWebPortType == null)
       _initDocOnlineServicioWebPortTypeProxy();
     return docOnlineServicioWebPortType;
   }
   
-  public ar.com.coninf.doconline.rest.model.response.xsd.Response cerrarSesion(java.lang.Integer interfaz, java.lang.String idSesion) throws java.rmi.RemoteException{
+  public Response cerrarSesion(java.lang.Integer interfaz, java.lang.String idSesion) throws RemoteException{
     if (docOnlineServicioWebPortType == null)
       _initDocOnlineServicioWebPortTypeProxy();
     return docOnlineServicioWebPortType.cerrarSesion(interfaz, idSesion);
@@ -56,7 +66,7 @@ public class DocOnlineServicioWebPortTypeProxy implements ar.com.coninf.doconlin
     return docOnlineServicioWebPortType.scheduleTimerSql(mensaje);
   }
   
-  public ar.com.coninf.doconline.rest.model.response.xsd.Response scheduleTimerFews(java.lang.String mensaje) throws java.rmi.RemoteException{
+  public Response scheduleTimerFews(String mensaje) throws RemoteException{
 	    if (docOnlineServicioWebPortType == null)
 	      _initDocOnlineServicioWebPortTypeProxy();
 	    return docOnlineServicioWebPortType.scheduleTimerFews(mensaje);
@@ -104,11 +114,18 @@ public class DocOnlineServicioWebPortTypeProxy implements ar.com.coninf.doconlin
     return docOnlineServicioWebPortType.consultarPadronOnline(request);
   }
   
-  public ar.com.coninf.doconline.rest.model.response.xsd.ResponseAutorizarComprobante autorizarComprobanteNuevo(ar.com.coninf.doconline.rest.model.request.xsd.RequestAutorizarComprobante request) throws java.rmi.RemoteException{
+  public ar.com.coninf.doconline.rest.model.response.xsd.ResponseAutorizarComprobante autorizarComprobanteNuevo(RequestAutorizarComprobante request) throws java.rmi.RemoteException{
     if (docOnlineServicioWebPortType == null)
       _initDocOnlineServicioWebPortTypeProxy();
     return docOnlineServicioWebPortType.autorizarComprobanteNuevo(request);
   }
+
+@Override
+public ResponseGenerarQr generarQr(ControlTransaccion ctx, DatoQr datoQr) throws RemoteException {
+	if (docOnlineServicioWebPortType == null)
+		_initDocOnlineServicioWebPortTypeProxy();
+    return docOnlineServicioWebPortType.generarQr(ctx, datoQr);
+}
   
   
 }
