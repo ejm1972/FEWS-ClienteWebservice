@@ -33,8 +33,6 @@ import ar.com.coninf.doconline.rest.model.tx.xsd.Tributo;
 
 public interface DocOnlineServicioWebPortType extends Remote {
     public Response 							cerrarSesion(Integer interfaz, String idSesion) throws RemoteException;
-    public Response 							scheduleTimerSql(String mensaje) throws RemoteException;
-    public Response 							scheduleTimerFews(String mensaje) throws RemoteException;
     public ResponseActualizarItemComprobante 	actualizarItemComprobante(RequestAutorizarComprobante request, RequestItemComprobante requestItemComprobante) throws RemoteException;
     public ResponseConsultarUltimoComprobante 	consultarUltimoComprobante(ControlTransaccion ctx, Integer tipoCbte, Integer ptoVta) throws RemoteException;
     public ResponseConsultarPadronLocal 		consultarPadronLocal(RequestConsultarPadronLocal request) throws RemoteException;
@@ -43,5 +41,6 @@ public interface DocOnlineServicioWebPortType extends Remote {
     public ResponseConsultarComprobante 		consultarComprobante(ControlTransaccion ctx, Integer tipoCbte, Integer ptoVta, Integer cbte) throws RemoteException;
     public ResponseConsultarPadronOnline 		consultarPadronOnline(RequestConsultarPadronOnline request) throws RemoteException;
     public ResponseAutorizarComprobante 		autorizarComprobanteNuevo(RequestAutorizarComprobante request) throws RemoteException;
-    public ResponseGenerarQr 					generarQr(ControlTransaccion ctx, DatoQr datoQr) throws RemoteException;
+
+    public ResponseGenerarQr generarQr(ControlTransaccion ctx, DatoQr datoQr) throws RemoteException;
 }
