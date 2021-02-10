@@ -8,7 +8,9 @@
 package ar.com.coninf.doconline.rest.model.response.xsd;
 
 public class Response  implements java.io.Serializable {
-    private java.lang.Integer codigo;
+	private static final long serialVersionUID = 2292614623048061471L;
+
+	private java.lang.Integer codigo;
 
     private java.lang.String descripcion;
 

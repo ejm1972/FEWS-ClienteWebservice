@@ -8,7 +8,9 @@
 package ar.com.coninf.doconline.rest.model.response.xsd;
 
 public class ResponseAutenticacion  extends ar.com.coninf.doconline.rest.model.response.xsd.Response  implements java.io.Serializable {
-    private java.lang.String idSesion;
+	private static final long serialVersionUID = -730412308555942312L;
+	
+	private java.lang.String idSesion;
 
     public ResponseAutenticacion() {
     }

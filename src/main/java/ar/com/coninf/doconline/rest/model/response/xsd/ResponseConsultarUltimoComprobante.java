@@ -8,7 +8,9 @@
 package ar.com.coninf.doconline.rest.model.response.xsd;
 
 public class ResponseConsultarUltimoComprobante  extends ar.com.coninf.doconline.rest.model.response.xsd.Response  implements java.io.Serializable {
-    private java.lang.String errMsg;
+	private static final long serialVersionUID = 188942455550804247L;
+
+	private java.lang.String errMsg;
 
     private java.lang.String excepcionWsaa;
 

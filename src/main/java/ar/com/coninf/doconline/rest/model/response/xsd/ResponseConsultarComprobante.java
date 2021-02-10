@@ -8,9 +8,6 @@
 package ar.com.coninf.doconline.rest.model.response.xsd;
 
 public class ResponseConsultarComprobante  extends ar.com.coninf.doconline.rest.model.response.xsd.Response  implements java.io.Serializable {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private java.lang.String cae;

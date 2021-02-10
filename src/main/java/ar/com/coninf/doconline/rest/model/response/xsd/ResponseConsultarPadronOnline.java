@@ -8,7 +8,9 @@
 package ar.com.coninf.doconline.rest.model.response.xsd;
 
 public class ResponseConsultarPadronOnline  extends ar.com.coninf.doconline.rest.model.response.xsd.Response  implements java.io.Serializable {
-    private java.lang.String cae;
+	private static final long serialVersionUID = 465841138578030265L;
+
+	private java.lang.String cae;
 
     private java.lang.String errMsg;
 
