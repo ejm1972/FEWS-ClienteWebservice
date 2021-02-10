@@ -5,56 +5,52 @@ import java.net.URL;
 import java.rmi.RemoteException;
 
 import org.apache.axis.AxisFault;
-import org.apache.log4j.Logger;
 
 import ar.com.coninf.doconline.rest.model.response.xsd.ResponseAutenticacion;
-import ar.com.coninf.doconline.rest.model.response.xsd.ResponseConsultarUltimoComprobante;
+import ar.com.coninf.doconline.rest.model.response.xsd.ResponseGenerarQr;
 import ar.com.coninf.doconline.rest.model.tx.xsd.ControlTransaccion;
+import ar.com.coninf.doconline.rest.model.tx.xsd.DatoQr;
 
 public class DocOnlineServicioWebMain {
-
-	private static Logger logger = Logger.getLogger(DocOnlineServicioWebMain.class);
 
 	public static void main(String[] args) {
 		
 		try {
 			DocOnlineServicioWeb w = new DocOnlineServicioWebLocator();
-			DocOnlineServicioWebPortType ws = new DocOnlineServicioWebSoap11BindingStub(new URL(w.getDocOnlineServicioWebHttpSoap11EndpointAddress()),w);
+			DocOnlineServicioWebPortType ws = new DocOnlineServicioWebSoap11BindingStub(new URL("http://localhost:8282/doconline-ws/services/DocOnlineServicioWeb.DocOnlineServicioWebHttpSoap11Endpoint/"),w);
 			
 			Integer interfaz = 9901;
 			String clave = "1234";
 			ResponseAutenticacion respA = ws.iniciarSesion(interfaz, clave);
 			
-			logger.debug("Codigo:"+respA.getCodigo());
-			logger.debug("Descripcion:"+respA.getDescripcion());
-			logger.debug("Observacion:"+respA.getObservacion());
-			logger.debug("EsReintento:"+respA.getEsReintento());
-			logger.debug("IdSesion:"+respA.getIdSesion());
+			System.out.println("Codigo:"+respA.getCodigo());
+			System.out.println("Descripcion:"+respA.getDescripcion());
+			System.out.println("Observacion:"+respA.getObservacion());
+			System.out.println("EsReintento:"+respA.getEsReintento());
+			System.out.println("IdSesion:"+respA.getIdSesion());
 			
 			String idSesion = respA.getIdSesion();
 			Long nroTransaccion = System.currentTimeMillis();
 			nroTransaccion = nroTransaccion - (nroTransaccion/1000000000)*1000000000;
 			ControlTransaccion ctx = new ControlTransaccion(idSesion, interfaz, nroTransaccion) ;
-			Integer tipoCbte = 1;
-			Integer ptoVta = 1;
-			ResponseConsultarUltimoComprobante respU = ws.consultarUltimoComprobante(ctx, tipoCbte, ptoVta);
-			
-			logger.debug("Codigo:"+respU.getCodigo());
-			logger.debug("Descripcion:"+respU.getDescripcion());
-			logger.debug("Observacion:"+respU.getObservacion());
-			logger.debug("EsReintento:"+respU.getEsReintento());
+			DatoQr datoQr = new DatoQr();
 
-			logger.debug("ExcepcionWSAA:"+respU.getExcepcionWsaa());
-			logger.debug("ExcepcionWSFEV1:"+respU.getExcepcionWsfev1());
-			logger.debug("ErrMsg:"+respU.getErrMsg());
-			logger.debug("Obs:"+respU.getObs());
-			logger.debug("XMLRequest:"+respU.getXmlRequest());
-			logger.debug("XMLResponse:"+respU.getXmlResponse());
+			ResponseGenerarQr respG = ws.generarQr(ctx, datoQr);
+			
+			System.out.println("Codigo:"+respG.getCodigo());
+			System.out.println("Descripcion:"+respG.getDescripcion());
+			System.out.println("Observacion:"+respG.getObservacion());
+			System.out.println("EsReintento:"+respG.getEsReintento());
+
+			System.out.println("getTextoQr:"+respG.getTextoQr());
+			System.out.println("getImagenQr:"+respG.getImagenQr());
 
 		} catch (AxisFault|MalformedURLException e) {
-			logger.error("AxisFault|MalformedURLException", e);
+			System.out.println("AxisFault|MalformedURLException");
+			e.printStackTrace();
 		} catch (RemoteException e) {
-			logger.error("RemoteException", e);
+			System.out.println("RemoteException");
+			e.printStackTrace();
 		}
 	}
 

@@ -845,7 +845,8 @@ public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.clien
 
 		setRequestHeaders(_call);
 		setAttachments(_call);
-		try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {ctx, datoQr});
+		try {        
+			java.lang.Object _resp = _call.invoke(new java.lang.Object[] {ctx, datoQr});
 
 		if (_resp instanceof java.rmi.RemoteException) {
 			throw (java.rmi.RemoteException)_resp;
