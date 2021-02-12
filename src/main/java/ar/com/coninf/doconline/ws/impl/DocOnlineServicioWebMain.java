@@ -104,7 +104,7 @@ public class DocOnlineServicioWebMain {
 			System.out.println("EsReintento:"+respG.getEsReintento());
 
 			System.out.println("getTextoQr:"+respG.getTextoQr());
-			System.out.println("getImagenQr:"+respG.getImagenQr().toString());
+			System.out.println("getImagenQr:"+new String(respG.getImagenQr()));
 			
 			
 
