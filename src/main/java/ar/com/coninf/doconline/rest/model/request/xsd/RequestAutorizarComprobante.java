@@ -53,6 +53,8 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
     private java.lang.Integer tipoDoc;
 
     private ar.com.coninf.doconline.rest.model.tx.xsd.Tributo[] tributos;
+    
+    private ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado[] periodoComprobanteAsociados;
 
     public RequestAutorizarComprobante() {
     }
