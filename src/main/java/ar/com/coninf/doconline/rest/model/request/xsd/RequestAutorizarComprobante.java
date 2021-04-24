@@ -54,7 +54,7 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
 
     private ar.com.coninf.doconline.rest.model.tx.xsd.Tributo[] tributos;
     
-    private ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado[] periodoComprobanteAsociados;
+    private ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado[] periodosComprobantesAsociados;
 
     public RequestAutorizarComprobante() {
     }
@@ -83,7 +83,8 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
            java.lang.Integer ptoVta,
            java.lang.Integer tipoCbte,
            java.lang.Integer tipoDoc,
-           ar.com.coninf.doconline.rest.model.tx.xsd.Tributo[] tributos) {
+           ar.com.coninf.doconline.rest.model.tx.xsd.Tributo[] tributos,
+           ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado[] periodosComprobantesAsociados) {
         super(
             controlTransaccion);
         this.comprobantesAsociados = comprobantesAsociados;
@@ -109,6 +110,7 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
         this.tipoCbte = tipoCbte;
         this.tipoDoc = tipoDoc;
         this.tributos = tributos;
+        this.periodosComprobantesAsociados = periodosComprobantesAsociados;
     }
 
 
@@ -603,6 +605,34 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
         this.tributos[i] = _value;
     }
 
+    /**
+     * Gets the tributos value for this RequestAutorizarComprobante.
+     * 
+     * @return tributos
+     */
+    public ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado[] getPeriodosComprobantesAsociados() {
+        return periodosComprobantesAsociados;
+    }
+
+
+    /**
+     * Sets the tributos value for this RequestAutorizarComprobante.
+     * 
+     * @param tributos
+     */
+    public void setPeriodoComprobanteAsociados(ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado[] periodosComprobantesAsociados) {
+        this.periodosComprobantesAsociados = periodosComprobantesAsociados;
+    }
+
+    public ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado getPeriodosComprobantesAsociados(int i) {
+        return this.periodosComprobantesAsociados[i];
+    }
+
+    public void setPeriodosComprobantesAsociados(int i, ar.com.coninf.doconline.rest.model.tx.xsd.PeriodoComprobanteAsociado _value) {
+        this.periodosComprobantesAsociados[i] = _value;
+    }
+    
+    
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof RequestAutorizarComprobante)) return false;
@@ -683,7 +713,10 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
               this.tipoDoc.equals(other.getTipoDoc()))) &&
             ((this.tributos==null && other.getTributos()==null) || 
              (this.tributos!=null &&
-              java.util.Arrays.equals(this.tributos, other.getTributos())));
+              java.util.Arrays.equals(this.tributos, other.getTributos()))) &&
+            ((this.periodosComprobantesAsociados==null && other.getPeriodosComprobantesAsociados()==null) || 
+                    (this.periodosComprobantesAsociados!=null &&
+                     java.util.Arrays.equals(this.periodosComprobantesAsociados, other.getComprobantesAsociados())));
         __equalsCalc = null;
         return _equals;
     }
@@ -790,6 +823,17 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
                  i<java.lang.reflect.Array.getLength(getTributos());
                  i++) {
                 java.lang.Object obj = java.lang.reflect.Array.get(getTributos(), i);
+                if (obj != null &&
+                    !obj.getClass().isArray()) {
+                    _hashCode += obj.hashCode();
+                }
+            }
+        }
+        if (getPeriodosComprobantesAsociados() != null) {
+            for (int i=0;
+                 i<java.lang.reflect.Array.getLength(getPeriodosComprobantesAsociados());
+                 i++) {
+                java.lang.Object obj = java.lang.reflect.Array.get(getPeriodosComprobantesAsociados(), i);
                 if (obj != null &&
                     !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
@@ -967,6 +1011,14 @@ public class RequestAutorizarComprobante  extends ar.com.coninf.doconline.rest.m
         elemField.setFieldName("tributos");
         elemField.setXmlName(new javax.xml.namespace.QName("http://request.model.rest.doconline.coninf.com.ar/xsd", "tributos"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "Tributo"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(true);
+        elemField.setMaxOccursUnbounded(true);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("periodosComprobantesAsociados");
+        elemField.setXmlName(new javax.xml.namespace.QName("http://request.model.rest.doconline.coninf.com.ar/xsd", "periodosComprobantesAsociados"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "PeriodoComprobanteAsociado"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);
