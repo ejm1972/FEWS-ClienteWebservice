@@ -48,23 +48,6 @@ public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.clien
 		_operations[0] = oper;
 
 		oper = new org.apache.axis.description.OperationDesc();
-		oper.setName("actualizarItemComprobante");
-		param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://impl.ws.doconline.coninf.com.ar", "request"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://request.model.rest.doconline.coninf.com.ar/xsd", "RequestAutorizarComprobante"), ar.com.coninf.doconline.rest.model.request.xsd.RequestAutorizarComprobante.class, false, false);
-		param.setOmittable(true);
-		param.setNillable(true);
-		oper.addParameter(param);
-		param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://impl.ws.doconline.coninf.com.ar", "requestItemComprobante"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://request.model.rest.doconline.coninf.com.ar/xsd", "RequestItemComprobante"), ar.com.coninf.doconline.rest.model.request.xsd.RequestItemComprobante.class, false, false);
-		param.setOmittable(true);
-		param.setNillable(true);
-		oper.addParameter(param);
-		oper.setReturnType(new javax.xml.namespace.QName("http://response.model.rest.doconline.coninf.com.ar/xsd", "ResponseActualizarItemComprobante"));
-		oper.setReturnClass(ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante.class);
-		oper.setReturnQName(new javax.xml.namespace.QName("http://impl.ws.doconline.coninf.com.ar", "return"));
-		oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-		oper.setUse(org.apache.axis.constants.Use.LITERAL);
-		_operations[1] = oper;
-
-		oper = new org.apache.axis.description.OperationDesc();
 		oper.setName("consultarUltimoComprobante");
 		param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://impl.ws.doconline.coninf.com.ar", "ctx"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "ControlTransaccion"), ar.com.coninf.doconline.rest.model.tx.xsd.ControlTransaccion.class, false, false);
 		param.setOmittable(true);
@@ -345,13 +328,6 @@ public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.clien
 		cachedSerFactories.add(beansf);
 		cachedDeserFactories.add(beandf);
 
-		qName = new javax.xml.namespace.QName("http://response.model.rest.doconline.coninf.com.ar/xsd", "ResponseActualizarItemComprobante");
-		cachedSerQNames.add(qName);
-		cls = ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante.class;
-		cachedSerClasses.add(cls);
-		cachedSerFactories.add(beansf);
-		cachedDeserFactories.add(beandf);
-
 		qName = new javax.xml.namespace.QName("http://response.model.rest.doconline.coninf.com.ar/xsd", "ResponseAutenticacion");
 		cachedSerQNames.add(qName);
 		cls = ar.com.coninf.doconline.rest.model.response.xsd.ResponseAutenticacion.class;
@@ -557,40 +533,6 @@ public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.clien
 		}
 	}
 	
-	public ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante actualizarItemComprobante(ar.com.coninf.doconline.rest.model.request.xsd.RequestAutorizarComprobante request, ar.com.coninf.doconline.rest.model.request.xsd.RequestItemComprobante requestItemComprobante) throws java.rmi.RemoteException {
-		if (super.cachedEndpoint == null) {
-			throw new org.apache.axis.NoEndPointException();
-		}
-		org.apache.axis.client.Call _call = createCall();
-		_call.setOperation(_operations[1]);
-		_call.setUseSOAPAction(true);
-		_call.setSOAPActionURI("urn:actualizarItemComprobante");
-		_call.setEncodingStyle(null);
-		_call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
-		_call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
-		_call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-		_call.setOperationName(new javax.xml.namespace.QName("http://impl.ws.doconline.coninf.com.ar", "actualizarItemComprobante"));
-
-		setRequestHeaders(_call);
-		setAttachments(_call);
-		try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {request, requestItemComprobante});
-
-		if (_resp instanceof java.rmi.RemoteException) {
-			throw (java.rmi.RemoteException)_resp;
-		}
-		else {
-			extractAttachments(_call);
-			try {
-				return (ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante) _resp;
-			} catch (java.lang.Exception _exception) {
-				return (ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante) org.apache.axis.utils.JavaUtils.convert(_resp, ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante.class);
-			}
-		}
-		} catch (org.apache.axis.AxisFault axisFaultException) {
-			throw axisFaultException;
-		}
-	}
-
 	public ar.com.coninf.doconline.rest.model.response.xsd.ResponseConsultarUltimoComprobante consultarUltimoComprobante(ar.com.coninf.doconline.rest.model.tx.xsd.ControlTransaccion ctx, java.lang.Integer tipoCbte, java.lang.Integer ptoVta) throws java.rmi.RemoteException {
 		if (super.cachedEndpoint == null) {
 			throw new org.apache.axis.NoEndPointException();

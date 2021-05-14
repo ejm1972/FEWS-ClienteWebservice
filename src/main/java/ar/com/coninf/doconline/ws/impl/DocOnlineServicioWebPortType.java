@@ -14,9 +14,7 @@ import java.rmi.RemoteException;
 import ar.com.coninf.doconline.rest.model.request.xsd.RequestAutorizarComprobante;
 import ar.com.coninf.doconline.rest.model.request.xsd.RequestConsultarPadronLocal;
 import ar.com.coninf.doconline.rest.model.request.xsd.RequestConsultarPadronOnline;
-import ar.com.coninf.doconline.rest.model.request.xsd.RequestItemComprobante;
 import ar.com.coninf.doconline.rest.model.response.xsd.Response;
-import ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante;
 import ar.com.coninf.doconline.rest.model.response.xsd.ResponseAutenticacion;
 import ar.com.coninf.doconline.rest.model.response.xsd.ResponseAutorizarComprobante;
 import ar.com.coninf.doconline.rest.model.response.xsd.ResponseConsultarComprobante;
@@ -33,7 +31,6 @@ import ar.com.coninf.doconline.rest.model.tx.xsd.Tributo;
 
 public interface DocOnlineServicioWebPortType extends Remote {
     public Response 							cerrarSesion(Integer interfaz, String idSesion) throws RemoteException;
-    public ResponseActualizarItemComprobante 	actualizarItemComprobante(RequestAutorizarComprobante request, RequestItemComprobante requestItemComprobante) throws RemoteException;
     public ResponseConsultarUltimoComprobante 	consultarUltimoComprobante(ControlTransaccion ctx, Integer tipoCbte, Integer ptoVta) throws RemoteException;
     public ResponseConsultarPadronLocal 		consultarPadronLocal(RequestConsultarPadronLocal request) throws RemoteException;
     public ResponseAutenticacion 				iniciarSesion(Integer interfaz, String clave) throws RemoteException;

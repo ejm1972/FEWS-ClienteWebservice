@@ -60,12 +60,6 @@ public class DocOnlineServicioWebPortTypeProxy implements DocOnlineServicioWebPo
 		return docOnlineServicioWebPortType.cerrarSesion(interfaz, idSesion);
 	}
 	
-	public ar.com.coninf.doconline.rest.model.response.xsd.ResponseActualizarItemComprobante actualizarItemComprobante(ar.com.coninf.doconline.rest.model.request.xsd.RequestAutorizarComprobante request, ar.com.coninf.doconline.rest.model.request.xsd.RequestItemComprobante requestItemComprobante) throws java.rmi.RemoteException{
-		if (docOnlineServicioWebPortType == null)
-			_initDocOnlineServicioWebPortTypeProxy();
-		return docOnlineServicioWebPortType.actualizarItemComprobante(request, requestItemComprobante);
-	}
-
 	public ar.com.coninf.doconline.rest.model.response.xsd.ResponseConsultarUltimoComprobante consultarUltimoComprobante(ar.com.coninf.doconline.rest.model.tx.xsd.ControlTransaccion ctx, java.lang.Integer tipoCbte, java.lang.Integer ptoVta) throws java.rmi.RemoteException{
 		if (docOnlineServicioWebPortType == null)
 			_initDocOnlineServicioWebPortTypeProxy();
