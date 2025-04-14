@@ -32,7 +32,7 @@ public class RequestItemComprobante  extends ar.com.coninf.doconline.rest.model.
 
     private java.math.BigDecimal impTrib;
 
-    private ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva[] ivas;
+    private ar.com.coninf.doconline.rest.model.tx.xsd.Iva[] ivas;
 
     private java.math.BigDecimal monedaCtz;
 
@@ -67,7 +67,7 @@ public class RequestItemComprobante  extends ar.com.coninf.doconline.rest.model.
            java.math.BigDecimal impTotConcNoGrav,
            java.math.BigDecimal impTotal,
            java.math.BigDecimal impTrib,
-           ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva[] ivas,
+           ar.com.coninf.doconline.rest.model.tx.xsd.Iva[] ivas,
            java.math.BigDecimal monedaCtz,
            java.lang.String monedaId,
            java.lang.Long nroCbte,
@@ -347,7 +347,7 @@ public class RequestItemComprobante  extends ar.com.coninf.doconline.rest.model.
      * 
      * @return ivas
      */
-    public ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva[] getIvas() {
+    public ar.com.coninf.doconline.rest.model.tx.xsd.Iva[] getIvas() {
         return ivas;
     }
 
@@ -357,15 +357,15 @@ public class RequestItemComprobante  extends ar.com.coninf.doconline.rest.model.
      * 
      * @param ivas
      */
-    public void setIvas(ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva[] ivas) {
+    public void setIvas(ar.com.coninf.doconline.rest.model.tx.xsd.Iva[] ivas) {
         this.ivas = ivas;
     }
 
-    public ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva getIvas(int i) {
+    public ar.com.coninf.doconline.rest.model.tx.xsd.Iva getIvas(int i) {
         return this.ivas[i];
     }
 
-    public void setIvas(int i, ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva _value) {
+    public void setIvas(int i, ar.com.coninf.doconline.rest.model.tx.xsd.Iva _value) {
         this.ivas[i] = _value;
     }
 
@@ -799,7 +799,7 @@ public class RequestItemComprobante  extends ar.com.coninf.doconline.rest.model.
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("ivas");
         elemField.setXmlName(new javax.xml.namespace.QName("http://request.model.rest.doconline.coninf.com.ar/xsd", "ivas"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "TipoIva"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "Iva"));
         elemField.setMinOccurs(0);
         elemField.setNillable(true);
         elemField.setMaxOccursUnbounded(true);

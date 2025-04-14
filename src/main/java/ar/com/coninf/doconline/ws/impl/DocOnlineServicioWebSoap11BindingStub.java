@@ -398,13 +398,6 @@ public class DocOnlineServicioWebSoap11BindingStub extends org.apache.axis.clien
 		cachedSerFactories.add(beansf);
 		cachedDeserFactories.add(beandf);
 
-		qName = new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "TipoIva");
-		cachedSerQNames.add(qName);
-		cls = ar.com.coninf.doconline.rest.model.tx.xsd.TipoIva.class;
-		cachedSerClasses.add(cls);
-		cachedSerFactories.add(beansf);
-		cachedDeserFactories.add(beandf);
-
 		qName = new javax.xml.namespace.QName("http://tx.model.rest.doconline.coninf.com.ar/xsd", "Tributo");
 		cachedSerQNames.add(qName);
 		cls = ar.com.coninf.doconline.rest.model.tx.xsd.Tributo.class;
